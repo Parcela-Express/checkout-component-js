@@ -1,5 +1,6 @@
 import AdyenCheckout from "@adyen/adyen-web";
-import AppStyle from './style.js';
+import AppStyle from '../config/style';
+import { paymentMethods } from '../config/payment-methods';
 
 export class CheckoutWebComponent extends HTMLElement {
   #onSubmit;
@@ -67,47 +68,6 @@ export class CheckoutWebComponent extends HTMLElement {
   }
   
   #createAdyenComponent(elementToRender, environment, clientKey) {
-    const paymentMethods = {
-      paymentMethods: [
-        {
-          brands: [
-            "mc",
-            "visa",
-            "elo",
-            "amex",
-            "hipercard",
-            "maestro",
-            "hiper",
-          ],
-          details: [
-            {
-              key: "encryptedCardNumber",
-              type: "cardToken",
-            },
-            {
-              key: "encryptedSecurityCode",
-              type: "cardToken",
-            },
-            {
-              key: "encryptedExpiryMonth",
-              type: "cardToken",
-            },
-            {
-              key: "encryptedExpiryYear",
-              type: "cardToken",
-            },
-            {
-              key: "holderName",
-              optional: true,
-              type: "text",
-            },
-          ],
-          name: "Credit Card",
-          type: "scheme",
-        },
-      ],
-    };
-
     const configuration = {
       locale: "pt-br",
       environment: environment,
@@ -137,7 +97,7 @@ export class CheckoutWebComponent extends HTMLElement {
       },
     };
 
-    const card = new AdyenCheckout(configuration);
+    const adyenCheckout = new AdyenCheckout(configuration);
 
     const callbacks = {
       onChange: (state) => {
@@ -148,6 +108,6 @@ export class CheckoutWebComponent extends HTMLElement {
       },
     };
 
-    card.create("card", callbacks).mount(elementToRender);
+    adyenCheckout.create("card", callbacks).mount(elementToRender);
   }
 }
