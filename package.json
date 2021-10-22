@@ -1,6 +1,6 @@
 {
   "name": "@parcelaexpress/checkout-component-js",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "description": "Parcela Checkout Component",
@@ -12,6 +12,9 @@
   "files": [
     "/lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --open",
     "watch": "webpack --watch",
@@ -38,5 +41,10 @@
   },
   "dependencies": {
     "@adyen/adyen-web": "^3.20.0"
-  }
+  },
+  "keywords": [
+    "web component",
+    "component",
+    "web"
+  ]
 }
