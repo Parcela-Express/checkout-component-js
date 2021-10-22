@@ -1,20 +1,20 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const pkg = require("./package.json");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: "production",
+  entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "lib"),
     publicPath: "",
-    filename: "bundle.js",
+    filename: "index.js",
+    library: {
+      name: pkg.name,
+      type: "umd",
+    },
   },
-  devtool: "inline-source-map",
-  devServer: {
-    static: "./dist",
-    hot: true,
-  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -28,17 +28,20 @@ module.exports = {
         },
       },
       {
+        test: /\.ts?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
   plugins: [
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./dev/index-html-template.html",
-      filename: "index.html",
-      inject: "body",
-    }),
+    new MiniCssExtractPlugin()
   ],
 };
