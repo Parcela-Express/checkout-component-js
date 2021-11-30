@@ -2,3 +2,6 @@
 /lib
 /node_modules
 npm-debug.log*
+
+/demo/index.js
+/demo/main.css
