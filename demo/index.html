@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><link href="demo/main.css" rel="stylesheet"><link href="demo/main.css" rel="stylesheet"><link href="demo/main.css" rel="stylesheet"><link href="/main.css" rel="stylesheet"><link href="/main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"></head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+<body>
+    <parcela-checkout 
+      environment='TEST' 
+      clientKey='test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B'
+  ></parcela-checkout>
+  <script>
+    const web_component = document.querySelector('parcela-checkout');
+
+    web_component.onChange = (state) => console.log(state);
+    web_component.onSubmit = (state) => console.log(state);
+  </script>
+</body>
+</html>

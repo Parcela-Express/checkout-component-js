@@ -6,14 +6,18 @@ module.exports = {
   mode: "development",
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "lib"),
-    publicPath: "/lib",
+    path: path.resolve(__dirname, "demo"),
+    publicPath: "",
     filename: "index.js"
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./lib",
-    hot: true
+    static: {
+      directory: path.join(__dirname, "demo")
+    },
+    hot: true,
+    compress: true,
+    port: 3000,
   },
   module: {
     rules: [
@@ -44,7 +48,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: "./dev/index.html",
+      template: "./demo/index.html",
       filename: "index.html",
       inject: "body",
     }),
