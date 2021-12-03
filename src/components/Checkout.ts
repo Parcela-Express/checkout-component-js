@@ -1,16 +1,11 @@
 import AdyenCheckout from "@adyen/adyen-web";
 import { paymentMethods } from "../config/payment-methods";
-
-export type CheckoutConfiguration = {
-  environment: string;
-  clientKey: string;
-  onChange: (state) => void;
-  onSubmit: (state) => void;
-};
+import { CheckoutConfiguration } from "./types";
 
 export class Checkout {
   private environment: string;
   private clientKey: string;
+  private apiUrl: string;
   private onChange: (state) => void;
   private onSubmit: (state) => void;
 
@@ -19,7 +14,7 @@ export class Checkout {
       throw "The config object must be provided!";
     }
 
-    const { environment, clientKey, onChange, onSubmit } = config;
+    const { environment, clientKey, onChange, onSubmit,  } = config;
 
     this.validateInput(environment, clientKey, onChange, onSubmit);
 

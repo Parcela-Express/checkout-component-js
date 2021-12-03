@@ -17,8 +17,10 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --open",
+    "start:class": "webpack serve --config webpack.devclass.js --open",
     "watch": "webpack --watch",
     "build:dev": "webpack --config webpack.dev.js",
+    "build:class": "webpack --config webpack.devclass.js",
     "build:prod": "webpack --config webpack.prod.js"
   },
   "devDependencies": {
@@ -40,7 +42,8 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
-    "@adyen/adyen-web": "^3.20.0"
+    "@adyen/adyen-web": "^3.20.0",
+    "joi": "^17.5.0"
   },
   "keywords": [
     "web component",

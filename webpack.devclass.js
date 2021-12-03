@@ -5,15 +5,21 @@ module.exports = {
   mode: "development",
   entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "demo"),
+    path: path.resolve(__dirname, "lib"),
     publicPath: "",
     filename: "index.js"
   },
   devtool: "inline-source-map",
   devServer: {
-    static: {
-      directory: path.join(__dirname, "demo")
-    },
+    static: [
+      {
+        directory: path.join(__dirname, "lib"),
+        publicPath: "/lib"
+      },
+      {
+        directory: path.join(__dirname, "demo-class")
+      },
+    ],
     hot: true,
     port: 3000,
   },
@@ -46,4 +52,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin()
   ],
+  experiments: {
+    outputModule: true,
+  },
 };
