@@ -20,7 +20,7 @@ type BillingAddress = {
     number_installments: number;
   }
   
-  type CustomerData = {
+  export type CustomerData = {
     amount_cents: number;
     description: string;
     form_payment: string,
@@ -43,3 +43,24 @@ type BillingAddress = {
     beforeSubmit?: (state) => void;
     afterSubmit?: (state) => void;
   };
+
+  export type ParsedData = {
+    amount_cents: number;
+    description: string;
+    form_payment?: string;
+    pre_capture?: boolean;
+    card_attributes: CardAttributes;
+    installment_plan: InstallmentPlan;
+    customer: Customer;
+    sale_id?: string;
+    success_return_url?: string;
+    error_return_url?: string;
+  }
+
+  type CardAttributes = {
+    holder_name: string;
+    number: string;
+    expiration_month: string;
+    expiration_year: string;
+    security_code: string;  
+  }
