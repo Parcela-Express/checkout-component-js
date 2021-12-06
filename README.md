@@ -1,6 +1,6 @@
 # Parcela Express Checkout Component JS
 
-[![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-react-component.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-component-js)
+[![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-component-js.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-component-js)
 
 ## Instalação
 
