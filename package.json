@@ -1,6 +1,6 @@
 {
   "name": "@parcelaexpress/checkout-component-js",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "description": "Parcela Checkout Component",
@@ -17,10 +17,8 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --open",
-    "start:class": "webpack serve --config webpack.devclass.js --open",
     "watch": "webpack --watch",
     "build:dev": "webpack --config webpack.dev.js",
-    "build:class": "webpack --config webpack.devclass.js",
     "build:prod": "webpack --config webpack.prod.js"
   },
   "devDependencies": {

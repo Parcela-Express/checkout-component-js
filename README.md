@@ -21,12 +21,9 @@ Siga as instruções abaixo para realizar a instalação do componente em sua ap
 
 ## Instalação
 
-O componente pode ser usado de duas formas:
+O componente pode ser usado da seguinte maneira:
 - [Web Component](https://www.webcomponents.org/introduction) 
-- Classe
 
-**1. Web Component**
- 
 Importe o componente dentro de sua aplicação e adicione o web component no seu html:
 
 #### **`index.js`**
@@ -40,6 +37,10 @@ import '@parcelaexpress/checkout-component-js';
     <parcela-checkout 
         environment='TEST' 
         clientKey='process.env.MINHA_CLIENT_KEY'
+        apiUrl="https://sandbox.parcelaexpress.com.br/"
+        sellerKey="e137d1b6-8f84-4377-ab5c-d27dd24415bd"
+        successReturnUrl="https://success-url.com.br"
+        errorReturnUrl="https://error-url.com.br"
     ></parcela-checkout>
 </body>
 ...
@@ -53,35 +54,33 @@ import '@parcelaexpress/checkout-component-js';
 
 const web_component = document.querySelector('parcela-checkout');
 
-web_component.onChange = (state) => console.log(state);
-web_component.onSubmit = (state) => console.log(state);
-  ```
-
-**2. Classe**
-
-Importe o componente dentro de sua aplicação e adicione uma div container para renderizar o componente:
-
-#### **`index.html`**
-  ```html
-...
-<body>
-    <div id='checkout-container'></div>
-</body>
-...
-  ```
-
-  #### **`index.js`**
-  ```js
-import * as ParcelaChekout from '@parcelaexpress/checkout-component-js';
-import '@parcelaexpress/checkout-component-js/lib/main.css';
-
-const config = {
-    clientKey: 'process.env.MINHA_CLIENT_KEY',
-    environment: 'TEST',
-    onChange: (state) => console.log('onc', state),
-    onSubmit: (state) => console.log('ons', state),
-};
-
-const checkoutInstance = new ParcelaChekout.Checkout(config);
-checkoutInstance.mount('checkout-container');
+web_component.customerData = {
+        amount_cents: 1000,
+        description: "Venda Teste",
+        form_payment: "debit",
+        installment_plan: {
+          number_installments: 1,
+        },
+        customer: {
+          email: "teste@fulano.com.br",
+          ip: "99.106.129.24",
+          first_name: "Testando",
+          last_name: "Teste",
+          document: "29896147027",
+          billing_address: {
+            city: "Belo Horizonte",
+            country: "BR",
+            house_number_or_name: '10',
+            postal_code: "31010500",
+            state: "MG",
+            street: "Rua Adamina",
+          },
+        },
+        pre_capture: false,
+      };
+      web_component.onChange = (state) => console.log(state);
+      web_component.onSubmit = (state) => console.log(state);
+      web_component.onSubmitError = (state) => console.log(state);
+      web_component.beforeSubmit = (state) => console.log("before submit");
+      web_component.afterSubmit = (state) => console.log("after submit");
   ```
