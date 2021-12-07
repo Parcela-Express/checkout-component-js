@@ -128,7 +128,6 @@ export class CheckoutWebComponent extends HTMLElement {
             installment_plan: this.customerData.installment_plan,
             customer: this.customerData.customer,
             sale_id: this.customerData.sale_id,
-            amount_fee: this.customerData.amount_fee,
             has_split_rules: this.customerData.has_split_rules,
             split_rules: this.customerData.split_rules
           }
