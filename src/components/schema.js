@@ -23,6 +23,12 @@ const schema = Joi.object({
     })
   }).required(),
   pre_capture: Joi.boolean(),
+  amount_fee: Joi.number(),
+  has_split_rules: Joi.boolean(),
+  split_rules: Joi.array().items({
+    amount: Joi.number().required(),
+    seller_id: Joi.string().required()
+  }),
   onChange: Joi.function().required(),
   onSubmit: Joi.function().required(),
   onSubmitError: Joi.function(),

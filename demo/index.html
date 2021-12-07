@@ -23,14 +23,14 @@
       }
     </style>
     <div id="container">
-      <image 
+      <image
         src="https://parcelaexpress-all-pos-web.s3.amazonaws.com/logo/cart.png"
         alt="Cart Express"
       ></image>
       <parcela-checkout
         environment="TEST"
         clientKey="test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B"
-        apiUrl="https://sandbox.parcelaexpress.com.br/"
+        apiUrl="http://324d-189-15-42-40.ngrok.io"
         sellerKey="e137d1b6-8f84-4377-ab5c-d27dd24415bd"
         successReturnUrl="https://success-url.com.br"
         errorReturnUrl="https://error-url.com.br"
@@ -40,7 +40,7 @@
       const web_component = document.querySelector("parcela-checkout");
 
       web_component.customerData = {
-        amount_cents: 1000,
+        amount_cents: 20010,
         description: "Venda Teste",
         form_payment: "debit",
         installment_plan: {
@@ -55,13 +55,24 @@
           billing_address: {
             city: "Belo Horizonte",
             country: "BR",
-            house_number_or_name: '10',
+            house_number_or_name: "10",
             postal_code: "31010500",
             state: "MG",
             street: "Rua Adamina",
           },
         },
         pre_capture: false,
+        has_split_rules: true,
+        split_rules: [
+          {
+            amount: 10000,
+            seller_id: "741d17b7-3e7c-493a-8d8c-f91b423c2a79",
+          },
+          {
+            amount: 5000,
+            seller_id: "5a6cda6a-8b90-417a-95de-982550bccfdf",
+          }
+        ],
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);

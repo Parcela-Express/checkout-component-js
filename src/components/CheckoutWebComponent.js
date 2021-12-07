@@ -127,7 +127,10 @@ export class CheckoutWebComponent extends HTMLElement {
             },
             installment_plan: this.customerData.installment_plan,
             customer: this.customerData.customer,
-            sale_id: this.customerData.sale_id
+            sale_id: this.customerData.sale_id,
+            amount_fee: this.customerData.amount_fee,
+            has_split_rules: this.customerData.has_split_rules,
+            split_rules: this.customerData.split_rules
           }
           if (successReturnUrl) {
             parsedData.success_return_url = successReturnUrl;
@@ -139,7 +142,7 @@ export class CheckoutWebComponent extends HTMLElement {
 
           const baseUrl = this.getAttribute('apiUrl') || "https://api-prod.parcelaexpress.com.br";
 
-          window.fetch(baseUrl + `/v1/payments/sellers/${this.getAttribute('sellerKey')}`, {
+          window.fetch(baseUrl + `/v2/payments/sellers/${this.getAttribute('sellerKey')}`, {
             method: 'POST',
             body: JSON.stringify(parsedData),
             headers: { 'Content-Type': 'application/json' }
