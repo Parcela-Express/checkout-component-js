@@ -77,6 +77,17 @@ web_component.customerData = {
           },
         },
         pre_capture: false,
+        has_split_rules: true,
+        split_rules: [
+          {
+            amount: 10000,
+            seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
+          },
+          {
+            amount: 5000,
+            seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
+          }
+        ],
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);
@@ -84,3 +95,5 @@ web_component.customerData = {
       web_component.beforeSubmit = (state) => console.log("before submit");
       web_component.afterSubmit = (state) => console.log("after submit");
   ```
+
+Os campos has_split_rules e split_rules(opcionais) são usados para dividir o valor da venda entre os estabelecimentos
