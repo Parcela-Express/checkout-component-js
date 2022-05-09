@@ -28,6 +28,7 @@ const schema = Joi.object({
     amount: Joi.number().required(),
     seller_id: Joi.string().required()
   }),
+  confirmation_required: Joi.boolean(),
   onChange: Joi.function().required(),
   onSubmit: Joi.function().required(),
   onSubmitError: Joi.function(),
