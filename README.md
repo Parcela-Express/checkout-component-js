@@ -88,6 +88,7 @@ web_component.customerData = {
             seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
           }
         ],
+        confirmation_required: false
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);
