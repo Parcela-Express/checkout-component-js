@@ -28,6 +28,7 @@ const schema = Joi.object({
     amount: Joi.number().required(),
     seller_id: Joi.string().required()
   }),
+  extract_identification: Joi.string(),
   confirmation_required: Joi.boolean(),
   onChange: Joi.function().required(),
   onSubmit: Joi.function().required(),
@@ -38,6 +39,6 @@ const schema = Joi.object({
   errorReturnUrl: Joi.string().required(),
   apiUrl: Joi.string(),
   sellerKey: Joi.string().uuid().required(),
-})
+});
 
 export default schema;

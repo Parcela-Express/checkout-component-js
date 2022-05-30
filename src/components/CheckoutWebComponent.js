@@ -131,8 +131,12 @@ export class CheckoutWebComponent extends HTMLElement {
             has_split_rules: this.customerData.has_split_rules,
             split_rules: this.customerData.split_rules
           }
+          if (this.customerData.extract_identification) {
+            parsedData.extract_identification = this.customerData.extract_identification;
+          }
+
           if (this.customerData.confirmation_required) {
-            parsedData.confirmation_required = this.customerData.confirmation_required
+            parsedData.confirmation_required = this.customerData.confirmation_required;
           }
 
           if (successReturnUrl) {
