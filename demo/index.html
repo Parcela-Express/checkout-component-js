@@ -1,21 +1,87 @@
 <!DOCTYPE html>
-<html lang="en"><head><link href="demo/main.css" rel="stylesheet"><link href="demo/main.css" rel="stylesheet"><link href="demo/main.css" rel="stylesheet"><link href="/main.css" rel="stylesheet"><link href="/main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"><link href="main.css" rel="stylesheet"></head>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <link href="main.css" rel="stylesheet" />
+  </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo</title>
-</head>
-<body>
-    <parcela-checkout 
-      environment='TEST' 
-      clientKey='test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B'
-  ></parcela-checkout>
-  <script>
-    const web_component = document.querySelector('parcela-checkout');
+  </head>
+  <body>
+    <style>
+      #container {
+        max-width: 600px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+      }
+      img {
+        width: 200px;
+        height: 190px;
+      }
+    </style>
+    <div id="container">
+      <image
+        src="https://parcelaexpress-all-pos-web.s3.amazonaws.com/logo/cart.png"
+        alt="Cart Express"
+      ></image>
+      <parcela-checkout
+        environment="TEST"
+        clientKey="test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B"
+        apiUrl="https://sandbox.parcelaexpress.com.br"
+        sellerKey="e137d1b6-8f84-4377-ab5c-d27dd24415bd"
+        successReturnUrl="https://success-url.com.br"
+        errorReturnUrl="https://error-url.com.br"
+      ></parcela-checkout>
+    </div>
+    <script>
+      const web_component = document.querySelector("parcela-checkout");
 
-    web_component.onChange = (state) => console.log(state);
-    web_component.onSubmit = (state) => console.log(state);
-  </script>
-</body>
+      web_component.customerData = {
+        amount_cents: 20010,
+        description: "Venda Teste",
+        form_payment: "debit",
+        installment_plan: {
+          number_installments: 1,
+        },
+        customer: {
+          email: "teste@fulano.com.br",
+          ip: "99.106.129.24",
+          first_name: "Testando",
+          last_name: "Teste",
+          document: "29896147027",
+          billing_address: {
+            city: "Belo Horizonte",
+            country: "BR",
+            house_number_or_name: "10",
+            postal_code: "31010500",
+            state: "MG",
+            street: "Rua Adamina",
+          },
+        },
+        pre_capture: false,
+        has_split_rules: true,
+        split_rules: [
+          {
+            amount: 10000,
+            seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
+          },
+          {
+            amount: 5000,
+            seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
+          }
+        ],
+        confirmation_required: false
+      };
+      web_component.onChange = (state) => console.log(state);
+      web_component.onSubmit = (state) => console.log(state);
+      web_component.onSubmitError = (state) => console.log(state);
+      web_component.beforeSubmit = (state) => console.log("before submit");
+      web_component.afterSubmit = (state) => console.log("after submit");
+      web_component.showPayButton = true;
+    </script>
+    <script defer src="index.js"></script>
+  </body>
 </html>
