@@ -95,6 +95,7 @@ web_component.customerData = {
       web_component.onSubmitError = (state) => console.log(state);
       web_component.beforeSubmit = (state) => console.log("before submit");
       web_component.afterSubmit = (state) => console.log("after submit");
+      web_component.showPayButton = true;
   ```
 
 Os campos has_split_rules e split_rules(opcionais) são usados para dividir o valor da venda entre os estabelecimentos

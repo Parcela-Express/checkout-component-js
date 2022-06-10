@@ -45,13 +45,15 @@ export class CheckoutWebComponent extends HTMLElement {
   }
   
   #createAdyenComponent(elementToRender, environment, clientKey) {
+    const showPayButton = this.showPayButton;
+    console.log(showPayButton)
     const configuration = {
       locale: "pt-br",
       environment: environment,
       clientKey: clientKey,
       paymentMethodsResponse: paymentMethods,
       hasHolderName: true,
-      showPayButton: true,
+      showPayButton: showPayButton !== undefined ? showPayButton : true,
       translations: {
         "pt-br": {
           payButton: "Pagamento",
