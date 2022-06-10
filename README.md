@@ -1,6 +1,6 @@
 # Parcela Express Checkout Component JS
 
-[![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-react-component.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-component-js)
+[![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-component-js.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-component-js)
 
 ## Instalação
 
@@ -97,5 +97,5 @@ web_component.customerData = {
       web_component.afterSubmit = (state) => console.log("after submit");
       web_component.showPayButton = true;
   ```
-
 Os campos has_split_rules e split_rules(opcionais) são usados para dividir o valor da venda entre os estabelecimentos
+
