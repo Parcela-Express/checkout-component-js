@@ -26,7 +26,9 @@ const schema = Joi.object({
   has_split_rules: Joi.boolean(),
   split_rules: Joi.array().items({
     amount: Joi.number().required(),
-    seller_id: Joi.string().required()
+    seller_id: Joi.string().required(),
+    description: Joi.string(),
+    no_cost: Joi.bool(),
   }),
   confirmation_required: Joi.boolean(),
   onChange: Joi.function().required(),
