@@ -26,7 +26,9 @@ const schema = Joi.object({
   has_split_rules: Joi.boolean(),
   split_rules: Joi.array().items({
     amount: Joi.number().required(),
-    seller_id: Joi.string().required()
+    seller_id: Joi.string().required(),
+    description: Joi.string(),
+    no_cost: Joi.bool(),
   }),
   extract_identification: Joi.string(),
   confirmation_required: Joi.boolean(),
@@ -39,7 +41,9 @@ const schema = Joi.object({
   errorReturnUrl: Joi.string().required(),
   apiUrl: Joi.string(),
   sellerKey: Joi.string().uuid().required(),
-  showPayButton: Joi.bool()
+  showPayButton: Joi.bool(),
+  active_3ds: Joi.boolean(),
+  risk_custom_field: Joi.string()
 });
 
 export default schema;
