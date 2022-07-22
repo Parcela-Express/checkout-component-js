@@ -82,10 +82,12 @@ web_component.customerData = {
           {
             amount: 10000,
             seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
+            description: "Descrição do split"
           },
           {
             amount: 5000,
             seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
+            no_cost: true
           }
         ],
         confirmation_required: false
