@@ -55,7 +55,7 @@ import '@parcelaexpress/checkout-component-js';
 const web_component = document.querySelector('parcela-checkout');
 
 web_component.customerData = {
-        amount_cents: 1000,
+        amount_cents: 20010,
         description: "Venda Teste",
         form_payment: "debit",
         installment_plan: {
@@ -70,7 +70,7 @@ web_component.customerData = {
           billing_address: {
             city: "Belo Horizonte",
             country: "BR",
-            house_number_or_name: '10',
+            house_number_or_name: "10",
             postal_code: "31010500",
             state: "MG",
             street: "Rua Adamina",
@@ -86,11 +86,12 @@ web_component.customerData = {
           },
           {
             amount: 5000,
-            seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
-            no_cost: true
+            seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e"
           }
         ],
-        confirmation_required: false
+        confirmation_required: false,
+        active_3ds: true,
+        service_id: "seu id(opcional)"
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);
