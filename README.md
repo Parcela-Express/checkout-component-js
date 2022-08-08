@@ -91,7 +91,8 @@ web_component.customerData = {
         ],
         confirmation_required: false,
         active_3ds: true,
-        service_id: "seu id(opcional)"
+        service_id: "seu id(opcional)",
+        protocol: "PROTOCOLO123658 (opcional)"
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);

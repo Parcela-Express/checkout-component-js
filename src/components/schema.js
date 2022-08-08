@@ -45,6 +45,7 @@ const schema = Joi.object({
   active_3ds: Joi.boolean(),
   risk_custom_field: Joi.string(),
   service_id: Joi.string(),
+  protocol: Joi.string(),
 });
 
 export default schema;
