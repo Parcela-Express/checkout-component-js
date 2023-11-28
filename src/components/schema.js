@@ -46,6 +46,8 @@ const schema = Joi.object({
   risk_custom_field: Joi.string(),
   service_id: Joi.string(),
   protocol: Joi.string(),
+  recurrence: Joi.boolean(),
+  recurrence_day: Joi.number().integer().min(1).max(31)
 });
 
 export default schema;
