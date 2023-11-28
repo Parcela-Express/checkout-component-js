@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link href="main.css" rel="stylesheet" />
-  </head>
-  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo</title>
   </head>
   <body>
+    <script defer src="index.js"></script>
     <style>
       #container {
         max-width: 600px;
@@ -40,9 +38,9 @@
       const web_component = document.querySelector("parcela-checkout");
 
       web_component.customerData = {
-        amount_cents: 20010,
+        amount_cents: 1000,
         description: "Venda Teste",
-        form_payment: "debit",
+        form_payment: "credit",
         installment_plan: {
           number_installments: 1,
         },
@@ -62,7 +60,7 @@
           },
         },
         pre_capture: false,
-        has_split_rules: true,
+        has_split_rules: false,
         split_rules: [
           {
             amount: 10000,
@@ -75,9 +73,11 @@
           }
         ],
         confirmation_required: false,
-        active_3ds: true,
+        active_3ds: false,
         service_id: "seu id(opcional)",
-        protocol: "PROTOCOLO123658"
+        protocol: "PROTOCOLO123658",
+        recurrence: false,
+        recurrence_day: 10
       };
       web_component.onChange = (state) => console.log(state);
       web_component.onSubmit = (state) => console.log(state);
@@ -86,6 +86,5 @@
       web_component.afterSubmit = (state) => console.log("after submit");
       web_component.showPayButton = true;
     </script>
-    <script defer src="index.js"></script>
   </body>
 </html>

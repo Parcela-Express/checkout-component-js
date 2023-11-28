@@ -156,6 +156,12 @@ export class CheckoutWebComponent extends HTMLElement {
             parsedData.risk_custom_field = this.customerData.risk_custom_field;
           }
 
+          if (this.customerData.recurrence &&
+            this.customerData.recurrence_day) {
+              parsedData.recurrence = this.customerData.recurrence;
+              parsedData.recurrence_day = this.customerData.recurrence_day;
+            }
+
           if (successReturnUrl) {
             parsedData.success_return_url = successReturnUrl;
           }
